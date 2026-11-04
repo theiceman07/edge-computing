@@ -1,0 +1,19 @@
+{
+  "trained_at_utc": "2026-11-04T09:47:20.874256+00:00",
+  "sensor_mode": "simulation",
+  "n_runs": 3,
+  "n_training_windows": 256,
+  "params": {
+    "n_estimators": 100,
+    "contamination": "auto",
+    "max_samples": "auto",
+    "random_state": 42,
+    "holdout_runs": 0
+  },
+  "window_seconds": 1.0,
+  "sample_rate_hz": 50,
+  "note": "Training-set statistics are not evidence of fault-detection quality. Evaluate on separate labelled runs.",
+  "warnings": [
+    "SIMULATED training data: for software testing only, not a real model"
+  ]
+}
