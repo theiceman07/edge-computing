@@ -3,9 +3,9 @@ Description=Motor health dashboard
 After=network-online.target
 
 [Service]
-User=pi
-WorkingDirectory=/home/pi/fault-detection
-ExecStart=/home/pi/fault-detection/.venv/bin/streamlit run app.py --server.address 0.0.0.0 --server.port 8501 --server.headless true
+User=juice
+WorkingDirectory="/home/juice/edge computing/motor-fault-monitor"
+ExecStart="/home/juice/edge computing/motor-fault-monitor/.venv/bin/streamlit" run app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true
 Restart=always
 RestartSec=3
 
