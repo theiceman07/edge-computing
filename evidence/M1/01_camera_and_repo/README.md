@@ -2,9 +2,9 @@
 
 **Checklist:** I capture a frame on the device and make my own commit with the spec sheet and first frame
 
-**Status:** PARTIAL
+**Status:** HAVE
 
-**Notes:** first_frame.jpg committed (a1c498c) with system info. Still to add: a one-page spec sheet (Pi model, camera, OS, versions).
+**Notes:** first_frame.jpg committed (a1c498c) with system info. Spec sheet added (`spec_sheet.md`, measured 2026-11-02).
 
 ## Evidence files in this folder
 - frame.jpg

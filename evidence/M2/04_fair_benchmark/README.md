@@ -2,7 +2,7 @@
 
 **Checklist:** I run 20 warm-up and 100+ timed runs at batch 1. I show median and p95 latency, FPS and model size
 
-**Status:** PARTIAL
+**Status:** HAVE
 
 **Notes:** ONNX FP32 and INT8 on the Pi done for the enclosure model (280 timed runs each, test-set images, not the live camera).
 

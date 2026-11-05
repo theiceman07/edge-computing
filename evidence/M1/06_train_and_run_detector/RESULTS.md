@@ -13,7 +13,7 @@ Colab T4 inference 6.7-22 ms/image (NOT a Pi number). Training took 0.051 h.
 Curves: train and val losses both fall and stay close (box 1.13 vs 1.26, cls 0.70 vs 0.69 at epoch 60) -> no overfitting.
 Best val mAP50 at epoch 59/60 and still creeping up -> slightly undertrained; early stopping never triggered.
 Confusion matrix (normalised, val): bolt 0.96, nut 1.00 correct; most false positives are predicted bolts.
-Not yet done: your own photos/part, Pi benchmark, INT8, 10 wrong-detection write-up.
+Not yet done (at the time of this baseline run; the items below were done later, see the enclosure section and ../../M2): your own photos/part, Pi benchmark, INT8, 10 wrong-detection write-up.
 
 ---
 
@@ -31,4 +31,4 @@ Per class (test): good TP 4/9 predicted, 7 labelled, P 0.444 R 0.571 AP50 0.452;
 These test numbers come from my own script, not from Ultralytics `val`, so they can differ slightly from the Colab output for the test split. Use the Colab test numbers (printed by the evaluation cell, and plotted in `enclosure/eval_test_480/`) if they are available.
 Reading: the test set is tiny (16 images), so the numbers are noisy. The model does NOT meet a useful target yet: val and test are both weak, and the main error is confusing good with defective (see WRONG_DETECTIONS.md), not failing to find the enclosure.
 Training ran all 100 epochs without early stopping; best val mAP50-95 at epoch 77.
-Not yet done: 640 run, more defective/good examples, Pi benchmark of enclosure.onnx.
+Not yet done: 640 run, more defective/good examples. (Update 2026-11-05: the Pi benchmark of enclosure.onnx was done, see ../../M2/04_fair_benchmark.)

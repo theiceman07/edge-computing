@@ -2,7 +2,7 @@
 
 **Checklist:** I explain and show the 70/20/10 split with no leakage
 
-**Status:** PARTIAL
+**Status:** HAVE (split_counts.md: 111/31/16, 0 identical and 0 near-duplicate part photos across splits)
 
 **Notes:** Enclosure dataset split 70/20/10 (train 111 / val 31 / test 16) with a group-aware split: photos whose 64-bit dHash is within 6 bits are kept in one split. `tools/split.py` verifies the counts and checks leakage (0 identical files, 0 near-duplicate part photos across splits). Weakness: the test set is only 6 good / 7 defective images. Splitter: `tools/label_enclosure.py`. A first per-photo split leaked (93 near-duplicate pairs) and was replaced.
 

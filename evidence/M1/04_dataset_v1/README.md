@@ -2,9 +2,9 @@
 
 **Checklist:** I label images with tight, correct boxes. I show my own labelled images and the data card
 
-**Status:** PARTIAL
+**Status:** HAVE
 
-**Notes:** Enclosure photos captured (good 76 / defective 77 / empty 31 clean, plus 305 with hands). Boxes still to be drawn and reviewed; data card to be rewritten for the enclosure.
+**Notes:** Enclosure photos captured (good 76 / defective 77 / empty 31 clean, plus 305 with hands). Update 2026-11-05: 158 photos labelled (auto-generated boxes checked by eye on a 30-image sample, see the data card) and the data card is written for the enclosure.
 
 ## Evidence files in this folder
 - DATA_CARD.md
