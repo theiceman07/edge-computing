@@ -1,0 +1,7 @@
+# Power-cycle (reboot) test on the Pi, 2026-11-05
+User ran: sudo reboot. Checked afterwards:
+boot time: 2026-11-05 10:02:32 (IST)
+motor-monitor ActiveEnterTimestamp: Thu 2026-11-05 10:02:46 IST  (service started by systemd without manual action)
+is-active: active  NRestarts: 0
+dashboard health: ok  HTTP 200
+Offline note: dashboard binds 127.0.0.1 and needs no network at runtime.
