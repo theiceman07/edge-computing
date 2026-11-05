@@ -47,3 +47,6 @@ Only the same-session run passes. Every later session is flagged in full. The mo
 ## What I could not do
 - Install the service (no sudo): `ln -sfn "/home/juice/edge computing/motor-fault-monitor" /home/juice/motor-fault-monitor (already done on this Pi); sudo cp deploy/motor-monitor.service /etc/systemd/system/ && sudo systemctl enable --now motor-monitor`, then `sudo reboot`; for the crash test, `sudo systemctl kill -s KILL motor-monitor` and confirm it restarts.
 - Anything needing a working imbalance fault on the rig.
+
+## Synthetic datasets (not real evidence)
+`data/synthetic/` (calibrated to real normal runs, assumed fault) and `data/synthetic_provided/` (user-supplied, self-labelled synthetic) demonstrate the pipeline only. They do not change any DONE/PARTIAL status for the real-data criteria above (sensor data, anomaly model, live demo, headline metric).

@@ -13,3 +13,4 @@ deploy/mosquitto/certs/
 deploy/mosquitto/passwd
 *.key
 data/models_synthetic/*
+data/models_synthetic_provided/*

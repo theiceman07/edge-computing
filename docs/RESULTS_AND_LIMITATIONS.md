@@ -36,3 +36,15 @@ Mount the sensor rigidly, record >=3 normal and >=3 imbalance runs at ~50 Hz wit
 | Dashboard | Server starts, HTTP 200, health ok. Live charts not checked in a browser. |
 | Auto-start via systemd and reboot | **Not done.** |
 | Real-hardware dashboard run with fault injection | **Not done.** |
+
+## Provided synthetic dataset (`data/synthetic_provided/`), 2026-11-05
+Nine CSVs supplied by the user (3 normal, 3 imbalance, 3 loose_mount; 3000 rows each). Every row carries `data_origin=synthetic` and the run ids start with `synthetic_`; timestamps are exactly 20 ms apart. They are **synthetic, not real recordings**. Copies were made with `sensor_mode` changed from `mpu6050` to `synthetic_provided` so the trainer cannot mistake them for hardware data (originals untouched in `~/Downloads/data mpu`).
+
+Isolation Forest trained on 2 normal runs (120 windows), evaluated on the 3rd normal run and all fault runs:
+| Label | Windows | Flagged |
+|---|---|---|
+| normal (false-alarm rate) | 60 | 58.3% |
+| imbalance (detection rate) | 180 | 100% |
+| loose_mount (detection rate) | 180 | 100% |
+
+Reading: the synthetic faults have much larger vibration than the synthetic normals, so they are easy to flag. The 58% false-alarm rate comes from run-to-run differences in the synthetic gravity offset between normal runs. This shows the pipeline works on separable synthetic data; it is **not** evidence of detection on the real motor.
