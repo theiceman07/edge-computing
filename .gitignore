@@ -12,3 +12,4 @@ faultdet.zip
 deploy/mosquitto/certs/
 deploy/mosquitto/passwd
 *.key
+data/models_synthetic/*
