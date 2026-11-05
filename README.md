@@ -7,7 +7,7 @@ Local motor-vibration anomaly detection: IMU/accelerometer over I²C → window 
 
 > **Prototype, not a safety system.** Isolation Forest reports *unusual* windows relative to the normal data it was
 > trained on. It does not diagnose fault types and is **not validated** until you test it on real recordings from your
-> own motor and sensor. Simulation data is for software smoke tests only.
+> own motor and sensor. Emulator-generated data is for software smoke tests only.
 
 **On a Raspberry Pi: follow `docs/PI_QUICKSTART.md`.**
 
@@ -21,7 +21,7 @@ pip install -r requirements.txt
 pytest -q
 ```
 
-## Run in simulation mode (no hardware)
+## Run with the sensor emulator (`simulation` mode, no hardware)
 ```bash
 streamlit run app.py --server.address 127.0.0.1
 ```
@@ -31,7 +31,7 @@ python scripts/collect_data.py --mode simulation --label normal --duration 100  
 python scripts/train_model.py --input data/raw/simulation_*_normal.csv --allow-simulation
 ```
 Restart monitoring; status shows `SIMULATION` (with the last window's NORMAL/ANOMALY in the detail line). Use the
-"Inject SIMULATED fault" toggle to see the anomaly path. Simulation-trained models are only usable in simulation mode.
+"Inject SIMULATED fault" toggle to see the anomaly path. Models trained on emulator data are only usable in `simulation` mode.
 
 ## Wiring (MPU6050 / GY-521) — verify against your breakout's documentation
 | Sensor | Pi 5 pin |
@@ -55,7 +55,7 @@ ADXL345 support is written from the datasheet and untested on hardware; MPU6050 
 1. Mount sensor; keep orientation, voltage, load and placement consistent. Acceleration **includes gravity**.
 2. Collect several normal runs across separate starts/sessions:
    `python scripts/collect_data.py --mode hardware --sensor mpu6050 --label normal --duration 120`
-   (fails with exit code 2 and never falls back to simulation if the sensor can't be read).
+   (fails with exit code 2 and never falls back to the emulator if the sensor can't be read).
 3. Train: `python scripts/train_model.py --input data/raw/<normal_1>.csv data/raw/<normal_2>.csv data/raw/<normal_3>.csv --holdout-runs 1`
    Unlabelled data requires `--confirm-normal`. Options: `--n-estimators`, `--contamination` (a thresholding assumption,
    not the real fault rate), `--max-samples`, `--seed`.
@@ -91,13 +91,13 @@ Files are never overwritten; each run gets a unique name. Streamlit should stay 
 `app.py` dashboard · `src/motor_fault/` library · `scripts/` CLIs · `tests/` (`pytest -q`, no hardware needed).
 
 ## Status
-| Done (PC, simulation) | 
+| Done (PC, emulator) | 
 |---|---|
 | 37 unit tests pass (`pytest -q`) |
 | Secure MQTT self-test 6/6 on the Pi; OTA install/rollback; drift report; Docker image; alert gateway (GPIO + Modbus tag) |
 | Threat model, architecture, decision rules, datasheet written |
 
-Real data so far: 3 motor-running normal runs (2026-11-05, loosely mounted sensor) plus at-rest runs from 2026-11-04. There is **no real fault detection**; see `docs/RESULTS_AND_LIMITATIONS.md` (synthetic data is labelled synthetic) and `docs/MILESTONE_CHECKLIST.md` for per-criterion status and evidence.
+Real data so far: 3 motor-running normal runs (2026-11-05, loosely mounted sensor) plus at-rest runs from 2026-11-04. There is **no real fault detection**; see `docs/RESULTS_AND_LIMITATIONS.md` (generated data is labelled `synthetic` in every file and run id) and `docs/MILESTONE_CHECKLIST.md` for per-criterion status and evidence.
 
 ## MQTT (secure, TLS + password)
 Broker config and scripts are in `deploy/mosquitto/` (port 8883, `allow_anonymous false`, password file, self-signed CA):
@@ -132,7 +132,7 @@ Shared repo with collaborators. Shared work on `main`; individually assessed mil
   plain TCP refused, untrusted certificate refused, correct login publishes and receives. Output: `docs/evidence/mqtt_selftest_pc_2026-10-23.txt`. Repeat it on the Pi for your own evidence.
 - Lessons from that run: the broker certificate needs a subjectAltName (`gen_certs.sh` now adds one for the host you pass); Mosquitto 2.1 rejects a loose-permission password/key file
   (`run_docker.sh` copies them in with the right owner/mode; on the Pi use `sudo chown mosquitto: passwd && sudo chmod 600 passwd`).
-- Bridge and vision publisher both delivered through the secure broker (synthetic window file): the bridge needs real motor data on the Pi.
+- Bridge and vision publisher both delivered through the secure broker (generated window file, not recorded): the bridge needs real motor data on the Pi.
 
 ## Reliability tools
 - `scripts/ota_model.py install <artifact>` makes a validated model the newest (active) one; `rollback` archives it so the previous model is active again; `status` lists models. Invalid artifacts are rejected before anything changes.

@@ -11,5 +11,5 @@
 | Alert output | GPIO23 active high |
 | Decision-to-output latency | median 4.1 ms, p95 6.2 ms (21 transitions, replay) |
 | Container | Dockerfile (dashboard); healthy 3.6 s after start |
-| Measured detection quality | **None validated.** Real normal runs from later sessions are flagged 100%; no real fault recordings; synthetic results (55% false alarms, 45% detection) are not evidence |
+| Measured detection quality | **None validated.** Real normal runs from later sessions are flagged 100%; no real fault recordings; results on computer-generated data (55% false alarms, 45% detection) are not evidence |
 | Intended use | Learning prototype. Not a safety system. |

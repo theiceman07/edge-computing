@@ -1,6 +1,6 @@
 # Dataset plan (to be recorded on your own motor)
 
-Real data can only come from your rig. Do not substitute downloaded datasets (e.g. CWRU is 12 kHz bearing data; this sensor samples at 50 Hz) or simulated data as evidence.
+Real data can only come from your rig. Do not substitute downloaded datasets (e.g. CWRU is 12 kHz bearing data; this sensor samples at 50 Hz) or emulator-generated data as evidence.
 
 ## Runs to record
 | Label | Runs | Duration | Condition |
