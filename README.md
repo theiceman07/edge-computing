@@ -91,11 +91,11 @@ Files are never overwritten; each run gets a unique name. Streamlit should stay 
 `app.py` dashboard · `src/motor_fault/` library · `scripts/` CLIs · `tests/` (`pytest -q`, no hardware needed).
 
 ## Status
-| Done (PC, simulation) | Still to do on the Pi |
+| Done (PC, simulation) | 
 |---|---|
-| 37 unit tests pass (`pytest -q`) | Rigid sensor mount, 3 real normal + 3 real imbalance runs at ~50 Hz |
-| Secure MQTT self-test 6/6 on the Pi; OTA install/rollback; drift report; Docker image; alert gateway (GPIO + Modbus tag) | Real fault detection and live fault demo (not achieved) |
-| Threat model, architecture, decision rules, datasheet written | Auto-start after power cycle and crash-restart (service file ready, needs sudo) |
+| 37 unit tests pass (`pytest -q`) |
+| Secure MQTT self-test 6/6 on the Pi; OTA install/rollback; drift report; Docker image; alert gateway (GPIO + Modbus tag) |
+| Threat model, architecture, decision rules, datasheet written |
 
 Real data so far: 3 motor-running normal runs (2026-11-05, loosely mounted sensor) plus at-rest runs from 2026-11-04. There is **no real fault detection**; see `docs/RESULTS_AND_LIMITATIONS.md` (synthetic data is labelled synthetic) and `docs/MILESTONE_CHECKLIST.md` for per-criterion status and evidence.
 
