@@ -2,9 +2,9 @@
 
 # Edge Vision: bolt/nut detection on Raspberry Pi 5
 
-USB camera -> YOLO (ONNX, 320 px) -> decision + debounce -> GPIO LEDs, live dashboard, optional MQTT, PASS/FAIL station, session history and reports.
+**Assessment evidence (M1 to M5): start at [EVIDENCE.md](EVIDENCE.md).** Current model: the enclosure detector (`app/enclosure.onnx`, YOLO11n @ 480 px); the nuts-and-bolts model below is the earlier baseline. Motor-monitor evidence is on the `motor-fault-monitor` branch.
 
-**This branch is a neutral starting point.** It contains shared code and templates only. Train your own model, measure on your own device and commit your results on your own branch (`docs/BRANCHING.md`).
+USB camera -> YOLO (ONNX, 320 px) -> decision + debounce -> GPIO LEDs, live dashboard, optional MQTT, PASS/FAIL station, session history and reports.
 
 **On a Raspberry Pi: follow `docs/PI_QUICKSTART.md`.**
 
