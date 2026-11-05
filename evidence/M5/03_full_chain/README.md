@@ -24,3 +24,6 @@
 - Frame rate is about 7-8 FPS, below the 15 FPS the dashboard is capped at.
 - The LED/GPIO output was **disabled for this run** (a stub `gpiozero` that raises ImportError, so `Leds` falls back to no-op) because GPIO 17/27/22 are shared with the L298N motor driver of the motor-fault-monitor rig and driving them could spin the motor. The chain tested here is camera -> detector -> dashboard; the LED actuator was not part of this run.
 - Model is the nuts-and-bolts detector (`best.onnx`, test mAP50 0.972 from the Colab run), not the enclosure model.
+
+## Screenshot
+`dashboard_during_10min_run_2026-11-05_1137.png` (11:37, about 6 minutes into the run): live dashboard with the camera view and detection boxes (5 bolts, 5 nuts), badge FAIL against the 2 bolt + 2 nut kit, about 7 FPS detection, no errors. Cropped to the dashboard only.
