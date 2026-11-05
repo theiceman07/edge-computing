@@ -1,0 +1,24 @@
+part_id,truth,decision,reason,counts,ts
+1,good,pass,kit complete,bolt=2;nut=2,1793859859.7
+2,good,pass,kit complete,bolt=2;nut=2,1793859991.6
+3,good,pass,kit complete,bolt=2;nut=2,1793860074.9
+4,good,pass,kit complete,bolt=2;nut=2,1793860081.5
+5,good,fail,extra 1 bolt,bolt=3;nut=2,1793860097.9
+6,defective,fail,extra 1 bolt; missing 1 nut,bolt=3;nut=1,1793860114.4
+7,good,pass,kit complete,bolt=2;nut=2,1793860155.7
+8,defective,fail,missing 1 bolt,bolt=1;nut=2,1793860167.3
+9,defective,fail,extra 1 nut,bolt=2;nut=3,1793860177.0
+10,good,pass,kit complete,bolt=2;nut=2,1793860185.2
+11,good,pass,kit complete,bolt=2;nut=2,1793860190.5
+12,defective,fail,missing 1 nut,bolt=2;nut=1,1793860198.3
+13,defective,fail,extra 1 bolt; missing 1 nut,bolt=3;nut=1,1793860247.0
+14,good,pass,kit complete,bolt=2;nut=2,1793860258.3
+15,defective,fail,extra 1 bolt,bolt=3;nut=2,1793860264.8
+16,good,pass,kit complete,bolt=2;nut=2,1793860271.5
+17,defective,fail,missing 1 bolt,bolt=1;nut=2,1793860277.9
+18,defective,fail,extra 1 nut,bolt=2;nut=3,1793860289.1
+19,good,pass,kit complete,bolt=2;nut=2,1793860296.7
+20,good,pass,kit complete,bolt=2;nut=2,1793860297.5
+21,defective,fail,extra 3 bolt; extra 3 nut,bolt=5;nut=5,1793860374.9
+22,defective,fail,extra 2 bolt; extra 3 nut,bolt=4;nut=5,1793860383.0
+23,defective,fail,extra 2 bolt; extra 2 nut,bolt=4;nut=4,1793860387.3

@@ -2,11 +2,7 @@
 
 **Checklist:** I test 20 parts (10 good, 10 defective) and show the confusion matrix and false-pass rate
 
-**Status:** TODO
+**Status:** HAVE (23 trays, 12 good / 11 defective; see RESULTS.md for the caveats)
 
-**Notes:** Station logic and CSV done (docs/STATION.md); the 20-tray test is not run.
-
-## Evidence files in this folder
-- STATION_procedure.md
-
-Rules: only numbers measured by me on my own hardware; commit on branch `arjun` with the milestone in the message.
+**Evidence:** `station_log.csv` (raw clicks), `RESULTS.md` (confusion matrix, false-pass rate, per-defect table, limitations), `STATION_procedure.md`.
+**Result:** 22 of 23 correct, false-pass 0 of 11, false-fail 1 of 12.
