@@ -9,9 +9,9 @@ Sheet criteria are shared with the edge-vision project; items that belong to the
 | Decision rule sheet | PARTIAL | `debounce_windows: 3` and alert logic in config.yaml / alerts.py; no one-page rule sheet written. |
 | Two-stream pipeline | n/a | Vision project. |
 | Debounce | DONE (code) | 3 consecutive anomalous windows; counted in the false-alarm table below. |
-| Actuator fires | NOT DONE | No relay/LED/stop signal for the motor monitor. |
-| Docker | NOT DONE | No Dockerfile in this repo (edge-vision has one). |
-| End-to-end latency | NOT DONE | Not measured. |
+| Actuator fires | PARTIAL | `scripts/alert_gateway.py` drives GPIO23 (active-high alert/stop signal) on a debounced alert; pin level read back for 21/21 transitions (`gateway_actuator_plc_latency_pi_2026-11-05.txt`). No relay/LED physically attached; replayed real windows, not a live fault. |
+| Docker | DONE (dashboard) | `Dockerfile`; built on the Pi, cold start to healthy dashboard in 3.6 s, 37 tests pass inside (`docker_coldstart_pi_2026-11-05.txt`). Actuator/sensor not inside the container (no GPIO/I2C passthrough configured). |
+| End-to-end latency (20+ events) | PARTIAL | Decision-to-output: median 4.1 ms, p95 6.2 ms, max 12.7 ms over 21 alert transitions (replay). Sensor-to-window time (1 s window) not included. |
 
 ## M4 Monitor and Connect
 | Criterion | Status | Evidence / gap |
@@ -21,7 +21,7 @@ Sheet criteria are shared with the edge-vision project; items that belong to the
 | False alarms over 5 normal runs, explain threshold | DONE (result is poor) | Table below. Threshold: IsolationForest contamination=auto, debounce 3 windows. |
 | Secure MQTT (refuses no-password, works with password + TLS) | DONE | `docs/evidence/mqtt_selftest_pi_2026-11-05.txt`, 6/6 PASS on this Pi. |
 | Topics (publish detection and motor score, show on subscriber) | PARTIAL | `mqtt_bridge.py` publishes `factory/motor/score`; PC end-to-end evidence from 2026-10-23; not re-run on the Pi. |
-| PLC link | NOT DONE | Only a diagram node in ARCHITECTURE.md. |
+| PLC link (tag changes on detection) | PARTIAL | Modbus TCP server (`src/motor_fault/gateway.py`, holding register 0 = alert) read back by a software client on every transition. No physical PLC tested. |
 | Threat model | DONE | `docs/M4_threat_model.md` (mitigations applied: TLS, password file). |
 | Reliability (drift report, OTA v1->v2 with rollback, auto-restart after crash) | PARTIAL | Drift report and OTA/rollback done on the Pi (evidence files). Auto-restart not done: the service file is fixed but not installed (needs sudo). |
 

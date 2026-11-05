@@ -1,0 +1,9 @@
+.venv/
+data/raw/
+data/processed/
+data/models/
+data/discarded_motor_off/
+__pycache__/
+.git/
+deploy/mosquitto/certs/
+deploy/mosquitto/passwd

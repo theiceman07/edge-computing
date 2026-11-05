@@ -1,0 +1,4 @@
+# Docker cold start on the Pi, 2026-11-05
+docker build -t motor-monitor . ; docker run -d -p 127.0.0.1:8511:8501 motor-monitor
+health ok after 3.611965384 s from docker run; HTTP 200
+tests in container: 37 passed in 7.52s

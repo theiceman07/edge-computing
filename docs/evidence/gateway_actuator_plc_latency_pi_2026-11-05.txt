@@ -1,0 +1,27 @@
+# Alert gateway replay on the Pi, 2026-11-05
+Real recorded windows replayed in order (alternating a clean 11-04 07:35 run and a flagged 11-04 10:13 run, 11 times), through model + debounce(3). GPIO23 and the Modbus tag are read back after each transition.
+Measures decision->output software latency only, not sensor->window. No relay/LED was attached; the pin level was read back with pinctrl.
+Command: python scripts/alert_gateway.py --replay <N F N F ...>
+
+alert RAISED  pin_ok=True tag_ok=True latency=12.7 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=4.0 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=3.1 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=3.1 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=3.1 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=5.8 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=5.1 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=4.4 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=3.1 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=4.1 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=3.2 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=5.7 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=6.0 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=4.2 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=4.1 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=4.1 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=3.1 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=6.2 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=5.2 ms [61104T101318851962Z_normal.csv]
+alert CLEARED pin_ok=True tag_ok=True latency=4.0 ms [61104T073509448103Z_normal.csv]
+alert RAISED  pin_ok=True tag_ok=True latency=4.4 ms [61104T101318851962Z_normal.csv]
+transitions=21 median=4.1 ms p95=6.2 ms max=12.7 ms
