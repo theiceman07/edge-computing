@@ -93,12 +93,11 @@ Files are never overwritten; each run gets a unique name. Streamlit should stay 
 ## Status
 | Done (PC, simulation) | Still to do on the Pi |
 |---|---|
-| 30 unit tests pass (`pytest -q`) | Wire the MPU6050, `i2cdetect`, `check_i2c.py` |
-| MQTT bridge written and unit-tested (not run against a broker yet) | 3 normal + 3 fault real runs, train on real normal data, live fault demo |
-| Mosquitto TLS config and scripts written (not run yet) | False-alarm count over 5 normal runs, threshold explanation |
-| Threat model and architecture drafted | Drift report, OTA v1->v2 with rollback, crash-restart, auto-start after power cycle |
+| 37 unit tests pass (`pytest -q`) | Rigid sensor mount, 3 real normal + 3 real imbalance runs at ~50 Hz |
+| Secure MQTT self-test 6/6 on the Pi; OTA install/rollback; drift report; Docker image; alert gateway (GPIO + Modbus tag) | Real fault detection and live fault demo (not achieved) |
+| Threat model, architecture, decision rules, datasheet written | Auto-start after power cycle and crash-restart (service file ready, needs sudo) |
 
-No real motor data has been collected yet. The simulator is for software smoke tests only; simulation-trained models are not evidence for M4.
+Real data so far: 3 motor-running normal runs (2026-11-05, loosely mounted sensor) plus at-rest runs from 2026-11-04. There is **no real fault detection**; see `docs/RESULTS_AND_LIMITATIONS.md` (synthetic data is labelled synthetic) and `docs/MILESTONE_CHECKLIST.md` for per-criterion status and evidence.
 
 ## MQTT (secure, TLS + password)
 Broker config and scripts are in `deploy/mosquitto/` (port 8883, `allow_anonymous false`, password file, self-signed CA):

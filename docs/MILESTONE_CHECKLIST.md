@@ -6,7 +6,7 @@ Sheet criteria are shared with the edge-vision project; items that belong to the
 ## M3 Decide and Act
 | Criterion | Status | Evidence / gap |
 |---|---|---|
-| Decision rule sheet | PARTIAL | `debounce_windows: 3` and alert logic in config.yaml / alerts.py; no one-page rule sheet written. |
+| Decision rule sheet | DONE | `docs/DECISION_RULES.md`. |
 | Two-stream pipeline | n/a | Vision project. |
 | Debounce | DONE (code) | 3 consecutive anomalous windows; counted in the false-alarm table below. |
 | Actuator fires | PARTIAL | `scripts/alert_gateway.py` drives GPIO23 (active-high alert/stop signal) on a debounced alert; pin level read back for 21/21 transitions (`gateway_actuator_plc_latency_pi_2026-11-05.txt`). No relay/LED physically attached; replayed real windows, not a live fault. |
@@ -41,7 +41,7 @@ Only the same-session run passes. Every later session is flagged in full. The mo
 | Full chain on the device for 10 min | NOT DONE | Not run. |
 | Live dashboard (live detections, 3 KPIs, motor alert) | PARTIAL | Starts, HTTP 200 (`dashboard_smoke_pi_2026-11-05.txt`); live view with real hardware not checked. |
 | Product readiness (auto-start after power cycle, offline, logs) | NOT DONE | Service file ready, not installed. |
-| Documents (README, architecture diagram) | PARTIAL | README, ARCHITECTURE.md, docs here; datasheet/demo video not made. |
+| Documents (README, architecture diagram) | PARTIAL | README, ARCHITECTURE.md (diagram), DATASHEET.md, DECISION_RULES.md written; no demo video. |
 | Live demo (normal + injected fault) | NOT DONE | No real fault injection achieved. |
 
 ## What I could not do
