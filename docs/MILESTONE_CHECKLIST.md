@@ -50,3 +50,6 @@ Only the same-session run passes. Every later session is flagged in full. The mo
 
 ## Synthetic datasets (not real evidence)
 `data/synthetic/` (calibrated to real normal runs, assumed fault) and `data/synthetic_provided/` (user-supplied, self-labelled synthetic) demonstrate the pipeline only. They do not change any DONE/PARTIAL status for the real-data criteria above (sensor data, anomaly model, live demo, headline metric).
+
+## Mentor acceptance (reported by the student, 2026-11-05; not yet in writing)
+The student reports that the mentor accepts clearly labelled synthetic data in place of real fault recordings, because the rig's components are no longer available. This applies to: sensor data (fault runs), anomaly model on fault data, live fault demo. The data stays labelled synthetic everywhere; the mentor's acceptance does not make it real. Evidence for the acceptance should be attached (a short message from the mentor) before submission.
