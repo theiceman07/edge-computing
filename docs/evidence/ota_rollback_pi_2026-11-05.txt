@@ -1,0 +1,15 @@
+# OTA install/rollback on the Pi, 2026-11-05 (temp model dir, active model untouched)
+v1 = real-data model; v2 = synthetic-calibrated model (used only as a second artifact)
+
+== status (v1 active)
+ACTIVE  model_20261104T094656761800Z.joblib
+== install v2
+installed model_20261105T035848879047Z.joblib; previous active: model_20261104T094656761800Z.joblib
+ACTIVE  model_20261105T035848879047Z.joblib
+         model_20261104T094656761800Z.joblib
+== install invalid artifact
+ERROR: Cannot load /tmp/claude-1000/-home-juice-edge-computing/346a5e9d-1276-4184-b852-71cfd93701e2/scratchpad/bad.joblib: Memo value not found at index 174812789
+exit=2
+== rollback
+archived model_20261105T035848879047Z.joblib; active now: model_20261104T094656761800Z.joblib
+ACTIVE  model_20261104T094656761800Z.joblib

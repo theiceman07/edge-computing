@@ -26,3 +26,13 @@ Detection is not meaningfully better than the false-alarm rate. The real normal 
 
 ## To make it real
 Mount the sensor rigidly, record >=3 normal and >=3 imbalance runs at ~50 Hz with a clearly visible unbalance weight, retrain, evaluate on separate runs.
+
+## Pi checks done 2026-11-05 (evidence in `docs/evidence/`)
+| Check | Result |
+|---|---|
+| Secure MQTT self-test, broker in Docker on this Pi | 6/6 PASS (`mqtt_selftest_pi_2026-11-05.txt`). Broker only; bridge and vision publisher not re-run. |
+| OTA install, invalid-artifact rejection, rollback | Works (`ota_rollback_pi_2026-11-05.txt`), run in a temp model dir. |
+| Drift report | Runs; 13/13 features flagged between the motor-off 2026-11-04 baseline and the motor-on 2026-11-05 runs (expected: different conditions). |
+| Dashboard | Server starts, HTTP 200, health ok. Live charts not checked in a browser. |
+| Auto-start via systemd and reboot | **Not done.** |
+| Real-hardware dashboard run with fault injection | **Not done.** |

@@ -1,0 +1,5 @@
+# Dashboard smoke test on the Pi, 2026-11-05
+Command: streamlit run app.py --server.address 127.0.0.1 --server.port 8599 --server.headless true
+HTTP 200
+health: ok
+(Server start and health only; the live charts were not checked in a browser.)
