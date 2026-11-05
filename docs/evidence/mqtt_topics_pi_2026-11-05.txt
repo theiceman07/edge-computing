@@ -1,0 +1,5 @@
+# MQTT topics on the Pi (bridge -> TLS broker -> subscriber), 2026-11-05
+Input: 120 windows replayed from synthetic_provided data scored by the synthetic_provided model (SYNTHETIC; not real motor data). Broker: eclipse-mosquitto in Docker, TLS 8883 + password.
+Command: mqtt_bridge.py --host localhost --cafile ca.crt --dir <replay windows dir>
+subscriber received 120 messages on factory/motor/score; alert=true in 75; first: {"ts": "2026-11-05T04:44:32.980000+00:00", "score": -0.05951118293190849, "prediction": -1, "alert": false, "model": "model_20261105T044824818676Z", "run": "synthetic_provided_replay_windows"}
+last: {"ts": "2026-11-05T04:45:31.980000+00:00", "score": -0.1857943764778408, "prediction": -1, "alert": true, "model": "model_20261105T044824818676Z", "run": "synthetic_provided_replay_windows"}

@@ -20,7 +20,7 @@ Sheet criteria are shared with the edge-vision project; items that belong to the
 | Anomaly model (train on normal, show alert when fault injected) | PARTIAL | Pipeline works; alert on injected fault only demonstrated in simulation/synthetic. No real fault detection. |
 | False alarms over 5 normal runs, explain threshold | DONE (result is poor) | Table below. Threshold: IsolationForest contamination=auto, debounce 3 windows. |
 | Secure MQTT (refuses no-password, works with password + TLS) | DONE | `docs/evidence/mqtt_selftest_pi_2026-11-05.txt`, 6/6 PASS on this Pi. |
-| Topics (publish detection and motor score, show on subscriber) | PARTIAL | `mqtt_bridge.py` publishes `factory/motor/score`; PC end-to-end evidence from 2026-10-23; not re-run on the Pi. |
+| Topics (publish detection and motor score, show on subscriber) | DONE (synthetic input) | `mqtt_bridge.py` -> TLS+password broker on the Pi -> subscriber received 120/120 messages on `factory/motor/score` (`mqtt_topics_pi_2026-11-05.txt`). Input windows were replayed from SYNTHETIC data; the transport path is real, the motor data is not. Detection-topic from the vision project not part of this repo. |
 | PLC link (tag changes on detection) | PARTIAL | Modbus TCP server (`src/motor_fault/gateway.py`, holding register 0 = alert) read back by a software client on every transition. No physical PLC tested. |
 | Threat model | DONE | `docs/M4_threat_model.md` (mitigations applied: TLS, password file). |
 | Reliability (drift report, OTA v1->v2 with rollback, auto-restart after crash) | DONE | Drift report, OTA/rollback and forced-crash restart (kill -9 -> healthy in 4.6 s) all done on the Pi (`systemd_autostart_crash_restart_pi_2026-11-05.txt`). |
