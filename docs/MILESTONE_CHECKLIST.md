@@ -23,7 +23,7 @@ Sheet criteria are shared with the edge-vision project; items that belong to the
 | Topics (publish detection and motor score, show on subscriber) | PARTIAL | `mqtt_bridge.py` publishes `factory/motor/score`; PC end-to-end evidence from 2026-10-23; not re-run on the Pi. |
 | PLC link (tag changes on detection) | PARTIAL | Modbus TCP server (`src/motor_fault/gateway.py`, holding register 0 = alert) read back by a software client on every transition. No physical PLC tested. |
 | Threat model | DONE | `docs/M4_threat_model.md` (mitigations applied: TLS, password file). |
-| Reliability (drift report, OTA v1->v2 with rollback, auto-restart after crash) | PARTIAL | Drift report and OTA/rollback done on the Pi (evidence files). Auto-restart not done: the service file is fixed but not installed (needs sudo). |
+| Reliability (drift report, OTA v1->v2 with rollback, auto-restart after crash) | DONE | Drift report, OTA/rollback and forced-crash restart (kill -9 -> healthy in 4.6 s) all done on the Pi (`systemd_autostart_crash_restart_pi_2026-11-05.txt`). |
 
 ### False alarms on real normal runs (model model_20261104T094656761800Z, debounce 3)
 | Run (UTC) | Windows | Flagged | Alerts |
@@ -40,7 +40,7 @@ Only the same-session run passes. Every later session is flagged in full. The mo
 | Inspection rig, pass/fail station, headline metric | n/a / NOT DONE | Vision-project items. |
 | Full chain on the device for 10 min | NOT DONE | Not run. |
 | Live dashboard (live detections, 3 KPIs, motor alert) | PARTIAL | Starts, HTTP 200 (`dashboard_smoke_pi_2026-11-05.txt`); live view with real hardware not checked. |
-| Product readiness (auto-start after power cycle, offline, logs) | NOT DONE | Service file ready, not installed. |
+| Product readiness (auto-start after power cycle, offline, logs) | PARTIAL | Service installed, enabled, active, crash-restart proven. **Power-cycle/reboot test not yet done** (needs `sudo reboot`; then confirm `systemctl is-active motor-monitor`). Dashboard binds 127.0.0.1, no network needed at runtime. |
 | Documents (README, architecture diagram) | PARTIAL | README, ARCHITECTURE.md (diagram), DATASHEET.md, DECISION_RULES.md written; no demo video. |
 | Live demo (normal + injected fault) | NOT DONE | No real fault injection achieved. |
 

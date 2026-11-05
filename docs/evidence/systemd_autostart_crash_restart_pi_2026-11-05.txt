@@ -1,0 +1,7 @@
+# systemd auto-start and crash-restart on the Pi, 2026-11-05
+enabled: enabled  active: active
+health: ok  HTTP 200
+MainPID before crash: 11574
+MainPID after: 11639  NRestarts: 1
+forced kill -9 -> healthy again after 4.638035403 s (Restart=always, RestartSec=3)
+uptime since boot: up 1 hour, 23 minutes
