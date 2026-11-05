@@ -11,5 +11,5 @@
 
 Rules: only numbers measured by me on my own hardware; commit on branch `arjun` with the milestone in the message.
 
-## Evidence on the `motor-fault-monitor` branch (pinned commit 01b7096)
-- [docs/evidence/gateway_actuator_plc_latency_pi_2026-11-05.txt](https://github.com/theiceman07/edge-computing/blob/01b70968780b7693451ec20e38bdc1d70ff71af4/docs/evidence/gateway_actuator_plc_latency_pi_2026-11-05.txt): decision-to-output latency over 21 alert transitions, median 4.1 ms, p95 6.2 ms, max 12.7 ms (replayed windows; 1 s sensor window not included).
+## Evidence on the `motor-fault-monitor` branch (pinned commit 802a158)
+- [docs/evidence/gateway_actuator_plc_latency_pi_2026-11-05.txt](https://github.com/theiceman07/edge-computing/blob/802a158fdc4f2f64943f398227d4d289ec826bef/docs/evidence/gateway_actuator_plc_latency_pi_2026-11-05.txt): decision-to-output latency over 21 alert transitions, median 4.1 ms, p95 6.2 ms, max 12.7 ms (replayed windows; 1 s sensor window not included).

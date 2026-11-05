@@ -2,7 +2,7 @@
 
 **Team submission:** Malligaarjunan A V K, Manoj M, Poornaa Shree Praveenraj, Sanadhani S Iyer, Tejaswi K (team submission approved, as reported by the team).
 
-**How to read this:** every row links to one folder. Its `README.md` says what was done, the status, and links every proof file, including proof that lives on the `motor-fault-monitor` branch (pinned to a commit, so it cannot change after submission). Vision items (M1, M2, M5 station) are on this branch; motor-monitor items (most of M3 actuator/Docker/latency, M4, M5 readiness) are on `motor-fault-monitor`. Synthetic or simulated data is labelled as such everywhere.
+**How to read this:** every row links to one folder. Its `README.md` says what was done, the status, and links every proof file, including proof that lives on the `motor-fault-monitor` branch (pinned to a commit, so it cannot change after submission). Vision items (M1, M2, M5 station) are on this branch; motor-monitor items (most of M3 actuator/Docker/latency, M4, M5 readiness) are on `motor-fault-monitor`. Generated or emulated data (not recorded from the real motor) is labelled as such everywhere.
 
 Status: HAVE = evidence exists, PARTIAL = some evidence, IN PROGRESS = being worked on, TODO = not started.
 
@@ -26,11 +26,11 @@ Status: HAVE = evidence exists, PARTIAL = some evidence, IN PROGRESS = being wor
 | M3 | Actuator fires | 3 | PARTIAL | [04_actuator_fires](evidence/M3/04_actuator_fires) |
 | M3 | Docker | 4 | PARTIAL | [05_docker](evidence/M3/05_docker) |
 | M3 | End-to-end latency | 2 | PARTIAL | [06_end_to_end_latency](evidence/M3/06_end_to_end_latency) |
-| M4 | Sensor data | 3 | PARTIAL (fault runs synthetic, labelled) | [01_sensor_data](evidence/M4/01_sensor_data) |
-| M4 | Anomaly model | 4 | PARTIAL (alert shown on synthetic/simulated fault only) | [02_anomaly_model](evidence/M4/02_anomaly_model) |
+| M4 | Sensor data | 3 | PARTIAL (fault runs computer-generated, not recorded; labelled) | [01_sensor_data](evidence/M4/01_sensor_data) |
+| M4 | Anomaly model | 4 | PARTIAL (alert shown only on a software-injected test fault, not a real motor fault) | [02_anomaly_model](evidence/M4/02_anomaly_model) |
 | M4 | False alarms | 2 | HAVE (result is poor, reported as measured) | [03_false_alarms](evidence/M4/03_false_alarms) |
 | M4 | Secure MQTT | 3 | HAVE | [04_secure_mqtt](evidence/M4/04_secure_mqtt) |
-| M4 | Topics | 2 | HAVE (transport real, input windows synthetic) | [05_topics](evidence/M4/05_topics) |
+| M4 | Topics | 2 | HAVE (transport real, input windows generated, not recorded) | [05_topics](evidence/M4/05_topics) |
 | M4 | PLC link | 2 | PARTIAL (software Modbus client, no physical PLC) | [06_plc_link](evidence/M4/06_plc_link) |
 | M4 | Threat model | 1 | HAVE | [07_threat_model](evidence/M4/07_threat_model) |
 | M4 | Reliability | 3 | HAVE | [08_reliability](evidence/M4/08_reliability) |
@@ -41,7 +41,7 @@ Status: HAVE = evidence exists, PARTIAL = some evidence, IN PROGRESS = being wor
 | M5 | Product readiness | 2 | PARTIAL (motor monitor done; vision service untested) | [05_product_readiness](evidence/M5/05_product_readiness) |
 | M5 | Headline metric | 2 | HAVE | [06_headline_metric](evidence/M5/06_headline_metric) |
 | M5 | Documents | 1 | PARTIAL | [07_documents](evidence/M5/07_documents) |
-| M5 | Live demo and questions | 1 | PARTIAL (simulated only) | [08_live_demo](evidence/M5/08_live_demo) |
+| M5 | Live demo and questions | 1 | PARTIAL (emulated demo only, no real motor fault) | [08_live_demo](evidence/M5/08_live_demo) |
 
 Total points on the checklist: 100.
 

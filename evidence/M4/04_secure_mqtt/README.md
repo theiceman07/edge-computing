@@ -11,6 +11,6 @@
 
 Rules: only numbers measured by me on my own hardware; commit on branch `arjun` with the milestone in the message.
 
-## Evidence on the `motor-fault-monitor` branch (pinned commit 01b7096)
-- [docs/evidence/mqtt_selftest_pi_2026-11-05.txt](https://github.com/theiceman07/edge-computing/blob/01b70968780b7693451ec20e38bdc1d70ff71af4/docs/evidence/mqtt_selftest_pi_2026-11-05.txt): on the Pi, 6/6 PASS: anonymous, wrong password, plain TCP and untrusted certificate refused; password + TLS works.
-- [deploy/mosquitto/mosquitto.conf](https://github.com/theiceman07/edge-computing/blob/01b70968780b7693451ec20e38bdc1d70ff71af4/deploy/mosquitto/mosquitto.conf): broker config (port 8883, allow_anonymous false, password file).
+## Evidence on the `motor-fault-monitor` branch (pinned commit 802a158)
+- [docs/evidence/mqtt_selftest_pi_2026-11-05.txt](https://github.com/theiceman07/edge-computing/blob/802a158fdc4f2f64943f398227d4d289ec826bef/docs/evidence/mqtt_selftest_pi_2026-11-05.txt): on the Pi, 6/6 PASS: anonymous, wrong password, plain TCP and untrusted certificate refused; password + TLS works.
+- [deploy/mosquitto/mosquitto.conf](https://github.com/theiceman07/edge-computing/blob/802a158fdc4f2f64943f398227d4d289ec826bef/deploy/mosquitto/mosquitto.conf): broker config (port 8883, allow_anonymous false, password file).
