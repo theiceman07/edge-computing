@@ -42,7 +42,7 @@ Only the same-session run passes. Every later session is flagged in full. The mo
 | Live dashboard (live detections, 3 KPIs, motor alert) | PARTIAL | Starts, HTTP 200 (`dashboard_smoke_pi_2026-11-05.txt`); live view with real hardware not checked. |
 | Product readiness (auto-start after power cycle, offline, logs) | DONE | Service enabled; after a real reboot it started itself 14 s after boot, 0 restarts, dashboard healthy (`reboot_autostart_pi_2026-11-05.txt`). Runs offline (127.0.0.1). Logs: `journalctl -u motor-monitor`. |
 | Documents (README, architecture diagram) | PARTIAL | README, ARCHITECTURE.md (diagram), DATASHEET.md, DECISION_RULES.md written; no demo video. |
-| Live demo (normal + injected fault) | NOT DONE | No real fault injection achieved. |
+| Live demo (normal + injected fault) | PARTIAL (simulated only) | `docs/evidence/demo_simulated_dashboard.mp4`: dashboard in SIMULATION mode with an injected SIMULATED fault (banner on every frame). Not a real motor fault; the real-rig demo is not done. |
 
 ## What I could not do
 - Install the service (no sudo): `ln -sfn "/home/juice/edge computing/motor-fault-monitor" /home/juice/motor-fault-monitor (already done on this Pi); sudo cp deploy/motor-monitor.service /etc/systemd/system/ && sudo systemctl enable --now motor-monitor`, then `sudo reboot`; for the crash test, `sudo systemctl kill -s KILL motor-monitor` and confirm it restarts.
