@@ -16,9 +16,6 @@ Raspberry Pi 5 + MPU6050 vibration monitor: 1 s window features -> Isolation For
 - The demo video (`demo_simulated_dashboard.mp4`) is the dashboard in emulator (`SIMULATION`) mode with a software-injected test fault, with a "SIMULATED DEMO" banner on every frame.
 - The MQTT topics, actuator and latency checks used windows replayed from recorded/generated data; no relay or PLC was attached.
 
-## Agreed with the mentor (reported by the student, 2026-11-05)
-Labelled computer-generated fault data is accepted in place of real fault recordings (components unavailable). It remains labelled as generated (not recorded).
-
 ## Honest result
 No fault detection has been validated on the real motor. The model trained on real normal data flags every normal run from later sessions (false-alarm count in `docs/MILESTONE_CHECKLIST.md`), so it is not session-robust. Fix: rigid sensor mount, then >=3 normal and >=3 fault real runs, retrain, evaluate on separate runs.
 
