@@ -1,0 +1,15 @@
+M3 two-stream pipeline run
+Started (UTC): 2026-11-05T12:52:00+00:00
+Hardware: Darwin 27.2.0 | arm64 | Apple M5 | 10 cores
+NOTE: run on the student's laptop, NOT the Raspberry Pi (Pi access ended).
+Runtime: onnxruntime 1.19.2 CPUExecutionProvider, 2 intra-op threads per session, OpenCV 5.0.0
+Input: recorded camera frames from app/mydata_enc (real rig photos), read from disk and looped; no live camera.
+Duration: 60 s per run
+
+| Stream | Model | Frames source | Alone FPS | Both at once FPS | Frames (both) | Detections (both) |
+|---|---|---|---|---|---|---|
+| A | enclosure.onnx (FP32) | enclosure_good + empty (107 files) | 38.7 | 28.3 | 1701 | 1808 {'enclosure_good': 1664, 'enclosure_defective': 144} |
+| B | enclosure_int8.onnx (INT8) | enclosure_defective (77 files) | 45.4 | 35.0 | 2102 | 3251 {'enclosure_good': 601, 'enclosure_defective': 2650} |
+
+Combined throughput with both streams: 63.4 FPS
+Per-second FPS for the two-stream run: fps_per_second.csv. Last frame of each stream: two_stream_frame.png.

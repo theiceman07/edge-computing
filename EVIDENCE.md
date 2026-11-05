@@ -21,7 +21,7 @@ Status: HAVE = evidence exists, PARTIAL = some evidence, IN PROGRESS = being wor
 | M2 | CPU vs accelerator + stack | 2 | HAVE | [05_cpu_vs_accelerator](evidence/M2/05_cpu_vs_accelerator) |
 | M2 | Own target and trade-off | 3 | HAVE | [06_own_target_tradeoff](evidence/M2/06_own_target_tradeoff) |
 | M3 | Decision rule sheet | 3 | PARTIAL | [01_decision_rule_sheet](evidence/M3/01_decision_rule_sheet) |
-| M3 | Two-stream pipeline | 4 | TODO | [02_two_stream_pipeline](evidence/M3/02_two_stream_pipeline) |
+| M3 | Two-stream pipeline | 4 | PARTIAL (two streams at once, FPS per stream; measured on own laptop with recorded rig frames, not on the Pi) | [02_two_stream_pipeline](evidence/M3/02_two_stream_pipeline) |
 | M3 | Debounce | 4 | PARTIAL | [03_debounce](evidence/M3/03_debounce) |
 | M3 | Actuator fires | 3 | PARTIAL | [04_actuator_fires](evidence/M3/04_actuator_fires) |
 | M3 | Docker | 4 | PARTIAL | [05_docker](evidence/M3/05_docker) |
