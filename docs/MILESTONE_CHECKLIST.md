@@ -45,5 +45,5 @@ Only the same-session run passes. Every later session is flagged in full. The mo
 | Live demo (normal + injected fault) | NOT DONE | No real fault injection achieved. |
 
 ## What I could not do
-- Install the service (no sudo): `sudo cp deploy/motor-monitor.service /etc/systemd/system/ && sudo systemctl enable --now motor-monitor`, then `sudo reboot`; for the crash test, `sudo systemctl kill -s KILL motor-monitor` and confirm it restarts.
+- Install the service (no sudo): `ln -sfn "/home/juice/edge computing/motor-fault-monitor" /home/juice/motor-fault-monitor (already done on this Pi); sudo cp deploy/motor-monitor.service /etc/systemd/system/ && sudo systemctl enable --now motor-monitor`, then `sudo reboot`; for the crash test, `sudo systemctl kill -s KILL motor-monitor` and confirm it restarts.
 - Anything needing a working imbalance fault on the rig.
